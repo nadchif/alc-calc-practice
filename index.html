@@ -1,9 +1,35 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
     <title>Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple PWA Calculator for practice lab">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Calculator">
+    <meta name="apple-mobile-web-app-title" content="Calculator">
+    <meta name="theme-color" content="#2e8af3">
+    <meta name="msapplication-navbutton-color" content="#2e8af3">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+
     <link rel="stylesheet" href="assets/app.css">
 </head>
 
@@ -12,7 +38,7 @@
         <!--Main Calculator Body-->
         <div class="flex-padding"></div>
         <div class="calc-frame">
-            <div class="calc-screen" id="screenFrame">
+            <header class="calc-screen" id="screenFrame">
                 <div class="top-line">
                     <div class="recent-icon">Q</div>
                     <div class="recent-equation" id="equationDisplay">Ans = 0</div>
@@ -20,9 +46,9 @@
                 <div class="digits-line" id="screenDisplay">
                     0
                 </div>
-            </div>
+            </header>
 
-            <div class="calc-buttons">
+            <main class="calc-buttons">
                 <!--first row-->
                 <div class="button-row">
                     <div class="btn-wrapper">
@@ -110,14 +136,53 @@
                     <div class="btn-wrapper">
                     </div>
                     <div class="btn-wrapper more-info">
-                        <small>More info</small>
+                        <small><a href="https://github.com/nadchif/alc-calc-practice">More info</a></small>
                     </div>
                 </div>
-            </div>
+            </main>
+            <section id="installBanner" class="banner">
+                <button id="installBtn" class="btn btn-special">Install app</button>
+            </section>
         </div>
         <div class="flex-padding"></div>
     </div>
+
 </body>
-<script src="assets/app.js"></script>
+
+<script src="assets/app.js" async></script>
+<script>
+
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', event => {
+
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        event.preventDefault();
+
+        // Stash the event so it can be triggered later.
+        deferredPrompt = event;
+
+        // Attach the install prompt to a user gesture
+        document.querySelector('#installBtn').addEventListener('click', event => {
+
+            // Show the prompt
+            deferredPrompt.prompt();
+
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice
+                .then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                        document.querySelector('#installBanner').style.display = 'none';
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+        });
+
+        // Update UI notify the user they can add to home screen
+        document.querySelector('#installBanner').style.display = 'flex';
+    });
+</script>
 
 </html>

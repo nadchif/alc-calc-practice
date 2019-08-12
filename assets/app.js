@@ -1,5 +1,6 @@
 const AppState = {
-    screenActive: false
+    screenActive: false,
+    canReset: false
 };
 const evalMath = (mathexp) => {
     let result = 0;
@@ -11,9 +12,10 @@ const evalMath = (mathexp) => {
     } catch (e) {
         //console.log("Eval error:", e);
     }
+    AppState.canReset = true;
     return result;
 }
-const acceptedOperators = ["/", "÷", "x", "*", "+", "-", "=", "(", ")", "ce", "CE", "Backspace", "Escape", "Enter"]
+const acceptedOperators = ["/", ".", "÷", "x", "*", "+", "-", "=", "(", ")", "ce", "CE", "Backspace", "Escape", "Enter"]
 
 const doMathOp = (event, entry) => {
     event.preventDefault();
@@ -61,10 +63,12 @@ const doMathOp = (event, entry) => {
 
     //handle CE
     if (entry == "CE" || entry == "Backspace" || entry == "Escape") {
-        if (screenDisplay.innerText.length > 1) {
+        
+        if (screenDisplay.innerText.length > 1 && AppState.canReset == false) {
             screenDisplay.innerText = screenDisplay.innerText.substring(0, screenDisplay.innerText.length - 1);
             return;
         }
+        AppState.canReset = false;
         callCE();
         return;
     }
@@ -106,3 +110,17 @@ const bootstrap = () => {
 }
 
 bootstrap();
+
+//register service-worker
+if('serviceWorker' in navigator){
+    console.log("service worker is supported");
+    window.addEventListener("load", ()=>{
+        navigator.serviceWorker.register("service-worker.js")
+        .then(registration => {
+            console.log("service worker registered", registration)
+        })
+        .catch(e => {
+            console.log("service worker could not register", e);
+        });
+    });
+}
