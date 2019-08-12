@@ -71,6 +71,7 @@ body {
     font-size: 1em;
     position: relative;
     overflow: hidden;
+    opacity: 1;
 }
 /*
 .btn:after {
@@ -98,8 +99,19 @@ body {
 
 */
 
+.btn:active{
+  animation-name: pressed;
+  animation-delay: 0s;
+  animation-duration: 0.3s;
+}
+
 .btn:focus {
-    outline: none;
+  outline: none;
+}
+@keyframes pressed{
+        0%  {  opacity:1; }
+        70%  {  opacity:0.5; }
+        100%  {  opacity:1; }
 }
 
 .btn-operator {
