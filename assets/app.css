@@ -1,0 +1,71 @@
+.page-container{
+    display: flex;
+    flex-direction: row;
+}
+.calc-frame{
+    border:1px solid #ccc;
+    padding: 1em;
+    border-radius: 0.5em;
+    flex-basis: 640px;
+    box-shadow: 1px 2px 2px 1px #ddd;
+}
+body{
+    background: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.calc-screen{
+    border:1px solid #ccc;
+    padding: 0.6em;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+}
+.flex-padding{
+display:none;
+flex: 1;
+}
+.top-line{
+    display:flex;
+}
+.recent-equation{
+    flex: 1;
+    text-align: right;
+    color: #444;
+}
+.digits-line{
+    font-size: 2em;
+    font-weight: 600;
+    text-align: right;
+}
+.button-row{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:0.5em;
+    margin-top:0.5em;
+}
+.btn-wrapper{
+    flex-basis: 24%
+}
+.btn {
+    border: none;
+    text-align: center;
+    padding: 0.9em;
+    width: 100%;
+    border-radius: 3px;
+    font-size:1.1em;
+}
+.btn-operator{
+    background: #dadada
+}
+.btn-number{
+    background: #ececec
+}
+.btn-special{
+    color: #fff;
+    background: rgb(0, 59, 252)
+}
+
+@media (min-width: 640px){
+.flex-padding{
+    display: block;
+}
+}
