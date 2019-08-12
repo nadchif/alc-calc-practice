@@ -4,7 +4,7 @@ const AppState = {
 const evalMath = (mathexp) => {
     let result = 0;
     try {
-        const tmpresult = eval(mathexp.replace("x", "*").replace("÷", "/"));
+        const tmpresult = eval(mathexp.replace("x", "*").replace("÷", "/").replace("(", "*("));
         if (!isNaN(tmpresult)) {
             result = tmpresult
         }
@@ -76,7 +76,7 @@ const doMathOp = (event, entry) => {
     }
 
     //stop accepting more than 16 digits
-    if (screenDisplay.innerText.length > 16) {
+    if (screenDisplay.innerText.length > 12) {
         return;
     }
 

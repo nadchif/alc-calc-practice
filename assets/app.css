@@ -7,13 +7,15 @@
     border: 1px solid #ccc;
     padding: 1em;
     border-radius: 0.5em;
-    flex-basis: 640px;
+    flex-basis: 480px;
     box-shadow: 1px 2px 2px 1px #ddd;
+    width: 100%;
+    overflow: hidden;
 }
 
 body {
     background: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .calc-screen {
@@ -21,9 +23,10 @@ body {
     padding: 0.6em;
     border-radius: 0.5em;
     margin-bottom: 1em;
+    white-space: nowrap;
 }
 
-.calc-screen.active{
+.calc-screen.active {
     border: 1px solid #2e8af3;
 }
 
@@ -45,6 +48,7 @@ body {
 .digits-line {
     font-size: 3em;
     text-align: right;
+    overflow: hidden;
 }
 
 .button-row {
@@ -119,8 +123,9 @@ body {
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
 }
-.btn-num-mode:focus{
-    outline:none;
+
+.btn-num-mode:focus {
+    outline: none;
 }
 
 .btn-fx-mode {
@@ -131,7 +136,8 @@ body {
     border-top-right-radius: 2em;
     border-bottom-right-radius: 2em;
 }
-.btn-fx-mode:focus{
+
+.btn-fx-mode:focus {
     outline: none;
 }
 
