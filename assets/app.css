@@ -98,7 +98,7 @@ body {
 }
 
 
-
+*/
 .btn:active{
   animation-name: pressed;
   animation-delay: 0s;
@@ -106,7 +106,7 @@ body {
   white-space: nowrap
 }
 
-*/
+
 .btn:focus {
   outline: none;
 }
@@ -170,8 +170,16 @@ body {
     align-content: center;
     display: none;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
   }
+.text-light{
+    color: #888;
+}
+.more-info a{
+    text-decoration: none;
+    color: #2e8af3;
+}
 
 @media (min-width: 640px) {
     .flex-padding {

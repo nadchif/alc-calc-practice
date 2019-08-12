@@ -102,7 +102,7 @@ const doMathOp = (event, entry) => {
 
 const bootstrap = () => {
     document.querySelectorAll('.btn').forEach((button) => {
-        button.addEventListener('click', (event) => doMathOp(event, button.textContent))
+        button.addEventListener('mousedown', (event) => doMathOp(event, button.textContent))
     });
     document.querySelector('body').addEventListener("keydown", () => {
         doMathOp(event, event.key);
