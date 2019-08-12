@@ -3,7 +3,7 @@ HTML based calc app (still in progress)
 
 Practice for:
 * HTML5
-  * Query Selectors
+  * Query Selector API
   * Sematic HTML
 * CSS3
   * Pseudo classes
@@ -13,7 +13,7 @@ Practice for:
   * Arrow functions
   * Back-ticks
   * const & let
-* Progress Web Apps
+* Progress Web App Technologies
   * Manifest
   * Service Worker
   * Fetch API (Offline caching)
