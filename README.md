@@ -3,12 +3,13 @@ HTML based calc app
 
 Practice for:
 *ES6 functions
-  -arrow functions
-  -back-ticks
-  -const & let
+  *Arrow functions
+  *Back-ticks
+  *const & let
 * Progress Web Apps
-  -Manifest
-  -Service Worker
-  -Fetch API
-  -Promises
+  *Manifest
+  *Service Worker
+  *Fetch API (Offline caching)
+  *Promises
   
+Live Demo: https://nadchif.github.io/alc-calc-practice/
