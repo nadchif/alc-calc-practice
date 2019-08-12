@@ -61,11 +61,11 @@ flex: 1;
 }
 .btn-special{
     color: #fff;
-    background: rgb(0, 59, 252)
+    background: #1c51ff;
 }
 .btn-num-mode{
-    color: rgb(0, 59, 252);
-    background:  rgb(232, 237, 255);
+    color: #1c51ff;
+    background:  #e8edff;
     font-weight: bold;
     padding: 1.5em;
     padding-top: 0.8em;
