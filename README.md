@@ -1,7 +1,14 @@
 # alc-calc-practice
-HTML based calc app
+HTML based calc app (still in progress)
 
 Practice for:
+* HTML5
+  * Query Selectors
+  * Sematic HTML
+* CSS3
+  * Pseudo classes
+  * Transitions
+  * Flexbox
 * ES6 functions
   * Arrow functions
   * Back-ticks
@@ -13,3 +20,5 @@ Practice for:
   * Promises
   
 Live Demo: https://nadchif.github.io/alc-calc-practice/
+
+ALC: https://andela.com/alc/
