@@ -51,7 +51,7 @@ flex: 1;
     padding: 0.9em;
     width: 100%;
     border-radius: 3px;
-    font-size:1.1em;
+    font-size:1em;
 }
 .btn-operator{
     background: #dadada
@@ -63,7 +63,33 @@ flex: 1;
     color: #fff;
     background: rgb(0, 59, 252)
 }
-
+.btn-num-mode{
+    color: rgb(0, 59, 252);
+    background:  rgb(232, 237, 255);
+    font-weight: bold;
+    padding: 1.5em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    border: 1px solid #ddd;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+.btn-fx-mode{
+    background:#fff;
+    font-weight: bold;
+    padding: 1.5em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    border: 1px solid #ddd;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+.btn-group{
+    white-space: nowrap;
+}
+.more-info{
+    text-align: right;
+}
 @media (min-width: 640px){
 .flex-padding{
     display: block;
