@@ -97,17 +97,20 @@ body {
     transition: 0s;
 }
 
-*/
+
 
 .btn:active{
   animation-name: pressed;
   animation-delay: 0s;
   animation-duration: 0.3s;
+  white-space: nowrap
 }
 
+*/
 .btn:focus {
   outline: none;
 }
+
 @keyframes pressed{
         0%  {  opacity:1; }
         70%  {  opacity:0.5; }
