@@ -23,6 +23,10 @@ body {
     margin-bottom: 1em;
 }
 
+.calc-screen.active{
+    border: 1px solid #2e8af3;
+}
+
 .flex-padding {
     display: none;
     flex: 1;
@@ -39,20 +43,19 @@ body {
 }
 
 .digits-line {
-    font-size: 2em;
-    font-weight: 600;
+    font-size: 3em;
     text-align: right;
 }
 
 .button-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 0.8em;
+    margin-top: 0.8em;
 }
 
 .btn-wrapper {
-    flex-basis: 24%
+    flex-basis: 23%
 }
 
 .btn {
@@ -111,23 +114,25 @@ body {
     color: #2e8af3;
     background: #e8edff;
     font-weight: bold;
-    padding: 1.5em;
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
+    padding: 0.8em 1.5em 0.8em 1.5em;
     border: 1px solid #ddd;
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
+}
+.btn-num-mode:focus{
+    outline:none;
 }
 
 .btn-fx-mode {
     background: #fff;
     font-weight: bold;
-    padding: 1.5em;
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
+    padding: 0.8em 1.5em 0.8em 1.5em;
     border: 1px solid #ddd;
     border-top-right-radius: 2em;
     border-bottom-right-radius: 2em;
+}
+.btn-fx-mode:focus{
+    outline: none;
 }
 
 .btn-group {
