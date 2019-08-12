@@ -52,6 +52,35 @@ flex: 1;
     width: 100%;
     border-radius: 3px;
     font-size:1em;
+    position: relative;
+    overflow: hidden;
+}
+    .btn:after {
+      content: "";
+      background:#cccccc83;
+      display: block;
+      position: absolute;
+      border-radius: 50%;
+      padding-top: 240%;
+      padding-left: 240%;
+      margin-top: -120%;
+      margin-left: -120%;
+      opacity: 0;
+      transition: all 0.5s;
+    }
+  
+    .btn:active:after {
+      padding-top: 0;
+      padding-left: 0;
+      margin-top: 0;
+      margin-left: 0;
+      opacity: 1;
+      transition: 0s;
+    }
+  
+  
+.btn:focus{
+    outline:none;
 }
 .btn-operator{
     background: #dadada
@@ -61,10 +90,10 @@ flex: 1;
 }
 .btn-special{
     color: #fff;
-    background: #1c51ff;
+    background: #2e8af3;
 }
 .btn-num-mode{
-    color: #1c51ff;
+    color:  #2e8af3;
     background:  #e8edff;
     font-weight: bold;
     padding: 1.5em;
