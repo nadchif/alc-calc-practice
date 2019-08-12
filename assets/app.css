@@ -1,100 +1,115 @@
-.page-container{
+.page-container {
     display: flex;
     flex-direction: row;
 }
-.calc-frame{
-    border:1px solid #ccc;
+
+.calc-frame {
+    border: 1px solid #ccc;
     padding: 1em;
     border-radius: 0.5em;
     flex-basis: 640px;
     box-shadow: 1px 2px 2px 1px #ddd;
 }
-body{
+
+body {
     background: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
-.calc-screen{
-    border:1px solid #ccc;
+
+.calc-screen {
+    border: 1px solid #ccc;
     padding: 0.6em;
     border-radius: 0.5em;
     margin-bottom: 1em;
 }
-.flex-padding{
-display:none;
-flex: 1;
+
+.flex-padding {
+    display: none;
+    flex: 1;
 }
-.top-line{
-    display:flex;
+
+.top-line {
+    display: flex;
 }
-.recent-equation{
+
+.recent-equation {
     flex: 1;
     text-align: right;
     color: #444;
 }
-.digits-line{
+
+.digits-line {
     font-size: 2em;
     font-weight: 600;
     text-align: right;
 }
-.button-row{
-    display:flex;
+
+.button-row {
+    display: flex;
     justify-content: space-between;
-    margin-bottom:0.5em;
-    margin-top:0.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
-.btn-wrapper{
+
+.btn-wrapper {
     flex-basis: 24%
 }
+
 .btn {
     border: none;
     text-align: center;
     padding: 0.9em;
     width: 100%;
     border-radius: 3px;
-    font-size:1em;
+    font-size: 1em;
     position: relative;
     overflow: hidden;
 }
-    .btn:after {
-      content: "";
-      background:#cccccc83;
-      display: block;
-      position: absolute;
-      border-radius: 50%;
-      padding-top: 240%;
-      padding-left: 240%;
-      margin-top: -120%;
-      margin-left: -120%;
-      opacity: 0;
-      transition: all 0.5s;
-    }
-  
-    .btn:active:after {
-      padding-top: 0;
-      padding-left: 0;
-      margin-top: 0;
-      margin-left: 0;
-      opacity: 1;
-      transition: 0s;
-    }
-  
-  
-.btn:focus{
-    outline:none;
+
+.btn:after {
+    content: "";
+    background: #cccccc83;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    padding-top: 240%;
+    padding-left: 240%;
+    margin-top: -120%;
+    margin-left: -120%;
+    opacity: 0;
+    transition: all 0.5s;
 }
-.btn-operator{
+
+.btn:active:after {
+    padding-top: 0;
+    padding-left: 0;
+    margin-top: 0;
+    margin-left: 0;
+    opacity: 1;
+    transition: 0s;
+}
+
+
+.btn:focus {
+    outline: none;
+}
+
+.btn-operator {
     background: #dadada
 }
-.btn-number{
+
+.btn-number {
     background: #ececec
 }
-.btn-special{
+
+.btn-special {
     color: #fff;
     background: #2e8af3;
 }
-.btn-num-mode{
-    color:  #2e8af3;
-    background:  #e8edff;
+
+.btn-num-mode {
+    color: #2e8af3;
+    background: #e8edff;
     font-weight: bold;
     padding: 1.5em;
     padding-top: 0.8em;
@@ -103,8 +118,9 @@ flex: 1;
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
 }
-.btn-fx-mode{
-    background:#fff;
+
+.btn-fx-mode {
+    background: #fff;
     font-weight: bold;
     padding: 1.5em;
     padding-top: 0.8em;
@@ -113,14 +129,17 @@ flex: 1;
     border-top-right-radius: 2em;
     border-bottom-right-radius: 2em;
 }
-.btn-group{
+
+.btn-group {
     white-space: nowrap;
 }
-.more-info{
+
+.more-info {
     text-align: right;
 }
-@media (min-width: 640px){
-.flex-padding{
-    display: block;
-}
+
+@media (min-width: 640px) {
+    .flex-padding {
+        display: block;
+    }
 }
