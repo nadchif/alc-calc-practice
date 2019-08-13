@@ -2,9 +2,11 @@
     display: flex;
     flex-direction: row;
 }
-.calc-buttons{
-    visibility: hidden;
+
+.calc-buttons {
+    opacity: 0.5;
 }
+
 .calc-frame {
     border: 1px solid #ccc;
     padding: 1em;
@@ -77,21 +79,29 @@ body {
 }
 
 
-.btn:active{
-  animation-name: pressed;
-  animation-delay: 0s;
-  animation-duration: 0.6s;
+.btn:active {
+    animation-name: pressed;
+    animation-delay: 0s;
+    animation-duration: 0.6s;
 }
 
 
 .btn:focus {
-  outline: none;
+    outline: none;
 }
 
-@keyframes pressed{
-        0%  {  opacity:1; }
-        50%  {  opacity:0.5; }
-        100%  {  opacity:1; }
+@keyframes pressed {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .btn-operator {
@@ -149,11 +159,13 @@ body {
     justify-content: center;
     flex-direction: column;
     width: 100%;
-  }
-.text-light{
+}
+
+.text-light {
     color: #888;
 }
-.more-info a{
+
+.more-info a {
     text-decoration: none;
     color: #2e8af3;
 }

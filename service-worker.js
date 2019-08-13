@@ -27,7 +27,7 @@ self.addEventListener("activate", (event) => {
 
 //watch for fetch events;
 self.addEventListener('fetch', event => {
-    
+
     event.respondWith(caches.match(event.request)
         .then(cachedResponse => {
             if (cachedResponse) {
@@ -36,5 +36,5 @@ self.addEventListener('fetch', event => {
             return fetch(event.request);
         })
     )
-   
+
 });

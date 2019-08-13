@@ -1,15 +1,15 @@
 {
-    "name": "Calculator",
-    "short_name": "Calc",
-    "lang": "en-US",
-    "start_url": "/index.html",
-    "display": "standalone",
-    "theme_color": "#2e8af3",
-    "background_color": "#fff",
-    "icons": [
-      {
-        "src": "assets/images/android-icon-192x192.png",
-        "sizes": "192x192"
-      }
-    ]
-  }
+  "name": "Calculator",
+  "short_name": "Calc",
+  "lang": "en-US",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#2e8af3",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "assets/images/android-icon-192x192.png",
+      "sizes": "192x192"
+    }
+  ]
+}

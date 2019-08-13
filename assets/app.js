@@ -63,7 +63,7 @@ const doMathOp = (event, entry) => {
 
     //handle CE
     if (entry == "CE" || entry == "Backspace" || entry == "Escape") {
-        
+
         if (screenDisplay.innerText.length > 1 && AppState.canReset == false) {
             screenDisplay.innerText = screenDisplay.innerText.substring(0, screenDisplay.innerText.length - 1);
             return;
@@ -107,21 +107,21 @@ const bootstrap = () => {
     document.querySelector('body').addEventListener("keydown", () => {
         doMathOp(event, event.key);
     });
-    document.getElementById("calcButtons").style.visibility = "visible";
+    document.getElementById("calcButtons").style.opacity = "1";
 }
 
 bootstrap();
 
 //register service-worker
-if('serviceWorker' in navigator){
+if ('serviceWorker' in navigator) {
     console.log("service worker is supported");
-    window.addEventListener("load", ()=>{
+    window.addEventListener("load", () => {
         navigator.serviceWorker.register("service-worker.js")
-        .then(registration => {
-            console.log("service worker registered", registration)
-        })
-        .catch(e => {
-            console.log("service worker could not register", e);
-        });
+            .then(registration => {
+                console.log("service worker registered", registration)
+            })
+            .catch(e => {
+                console.log("service worker could not register", e);
+            });
     });
 }
