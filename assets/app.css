@@ -27,7 +27,8 @@ body {
     padding: 0.6em;
     border-radius: 0.5em;
     margin-bottom: 1em;
-    white-space: nowrap;
+    overflow-x: hidden;
+    text-align: right;
 }
 
 .calc-screen.active {
@@ -52,7 +53,8 @@ body {
 .digits-line {
     font-size: 3em;
     text-align: right;
-    overflow: hidden;
+    float:right;
+    white-space: nowrap;
 }
 
 .button-row {
@@ -173,5 +175,8 @@ body {
 @media (min-width: 640px) {
     .flex-padding {
         display: block;
+    }
+    .calc-screen {
+        width: 460px;
     }
 }

@@ -7,7 +7,7 @@ const evalMath = (mathexp) => {
     try {
         const tmpresult = eval(mathexp.replace("x", "*").replace("÷", "/").replace("(", "*("));
         if (!isNaN(tmpresult)) {
-            result = tmpresult
+            result = parseFloat(tmpresult.toPrecision(12));
         }
     } catch (e) {
         //console.log("Eval error:", e);
@@ -85,7 +85,7 @@ const doMathOp = (event, entry) => {
 
     //stop accepting more than 16 digits
     if (screenDisplay.innerText.length > 12) {
-        return;
+        //return;
     }
 
 
