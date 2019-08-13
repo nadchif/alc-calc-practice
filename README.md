@@ -9,10 +9,11 @@ Practice for:
   * Pseudo classes
   * Transitions
   * Flexbox
-* ES6 functions
+* Javascript functions
   * Arrow functions
   * Back-ticks
   * const & let
+  * Event handling (keydown, mousedown, etc)
 * Progress Web App Technologies
   * Manifest
   * Service Worker
