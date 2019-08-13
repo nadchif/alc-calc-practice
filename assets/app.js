@@ -2,10 +2,14 @@ const AppState = {
     screenActive: false,
     canReset: false
 };
+const processEquation = (eqn) => {
+    return new Function('return ' + eqn)();
+  }
+
 const evalMath = (mathexp) => {
     let result = 0;
     try {
-        const tmpresult = eval(mathexp.replace("x", "*").replace("÷", "/").replace("(", "*("));
+        const tmpresult = processEquation(mathexp.replace("x", "*").replace("÷", "/").replace("(", "*("));
         if (!isNaN(tmpresult)) {
             result = parseFloat(tmpresult.toPrecision(12));
         }
