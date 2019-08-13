@@ -106,7 +106,8 @@ const bootstrap = () => {
     });
     document.querySelector('body').addEventListener("keydown", () => {
         doMathOp(event, event.key);
-    })
+    });
+    document.getElementById("calcButtons").style.visibility = "visible";
 }
 
 bootstrap();
