@@ -56,9 +56,13 @@ const doMathOp = (event, entry) => {
 
     //add screen activate effect
     if (screenDisplay.innerText.length > 0) {
-        screenFrame.classList.add("active");
+        if(!screenFrame.classList.contains("active")){
+            screenFrame.classList.add("active");
+        }
     } else {
+        if(screenFrame.classList.contains("active")){
         screenFrame.classList.remove("active");
+        }
     }
 
     //handle CE
