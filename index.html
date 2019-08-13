@@ -38,112 +38,115 @@
         <!--Main Calculator Body-->
         <div class="flex-padding"></div>
         <div class="calc-frame">
-            <header class="calc-screen" id="screenFrame">
-                <div class="top-line">
-                    <div class="recent-icon">Q</div>
-                    <div class="recent-equation text-light" id="equationDisplay">Ans = 0</div>
-                </div>
-                <div class="digits-line" id="screenDisplay">
-                    0
-                </div>
-            </header>
+            <div class="v-flex">
+                <header class="calc-screen" id="screenFrame">
+                    <div class="top-line">
+                        <div class="recent-icon">Q</div>
+                        <div class="recent-equation text-light" id="equationDisplay">Ans = 0</div>
+                    </div>
+                    <div class="digits-line" id="screenDisplay">
+                        0
+                    </div>
+                </header>
 
-            <main class="calc-buttons" id="calcButtons">
-                <!--first row-->
-                <div class="button-row">
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-operator">(</button>
+                <main class="calc-buttons" id="calcButtons">
+                    <!--first row-->
+                    <div class="button-row">
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-operator" data-math-char="(">(</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-operator" data-math-char=")">)</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-operator" data-math-char="%">%</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-operator" data-math-char="CE">CE</button>
+                        </div>
                     </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-operator">)</button>
+                    <!--second row-->
+                    <div class="button-row">
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="7">7</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="8">8</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="9">9</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-operator" data-math-char="÷">÷</button>
+                        </div>
                     </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-operator">%</button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-operator">CE</button>
-                    </div>
-                </div>
-                <!--second row-->
-                <div class="button-row">
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">7</button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">8</button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">9</button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-operator">÷</button>
-                    </div>
-                </div>
 
-                <!--third row-->
-                <div class="button-row">
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">4</button>
+                    <!--third row-->
+                    <div class="button-row">
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="4">4</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="5">5</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="6">6</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-operator" data-math-char="x">x</button>
+                        </div>
                     </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">5</button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">6</button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-operator">x</button>
-                    </div>
-                </div>
 
-                <!--fourth row-->
-                <div class="button-row">
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">1</button>
+                    <!--fourth row-->
+                    <div class="button-row">
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="1">1</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="2">2</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="3">3</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-operator" data-math-char="-">-</button>
+                        </div>
                     </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">2</button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">3</button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-operator">-</button>
-                    </div>
-                </div>
 
-                <!--fifth row-->
-                <div class="button-row">
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number">0</button>
+                    <!--fifth row-->
+                    <div class="button-row">
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="0">0</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-number" data-math-char="."><b>.</b></button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-special" data-math-char="=">=</button>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="button" class="btn btn-operator" data-math-char="+">+</button>
+                        </div>
                     </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-number ripple"><b>.</b></button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-special">=</button>
-                    </div>
-                    <div class="btn-wrapper">
-                        <button type="button" class="btn btn-operator">+</button>
-                    </div>
-                </div>
 
-                <!--final row-->
-                <div class="button-row">
-                    <div class="btn-wrapper btn-group">
-                        <button type="button" class="btn-num-mode">123</button><button type="button"
-                            class="btn-fx-mode">Fx</button>
+                    <!--final row-->
+                    <div class="button-row">
+                        <div class="btn-wrapper btn-group">
+                            <button type="button" class="btn-num-mode">123</button><button type="button"
+                                class="btn-fx-mode">Fx</button>
+                        </div>
+                        <div class="btn-wrapper">
+                        </div>
+                        <div class="btn-wrapper more-info">
+                            <small><a href="https://github.com/nadchif/alc-calc-practice">More info</a></small>
+                        </div>
                     </div>
-                    <div class="btn-wrapper">
-                    </div>
-                    <div class="btn-wrapper more-info">
-                        <small><a href="https://github.com/nadchif/alc-calc-practice">More info</a></small>
-                    </div>
-                </div>
-            </main>
-            <section id="installBanner" class="banner">
-                <button id="installBtn" class="btn btn-special">Install app</button>
-            </section>
+
+                </main>
+                <section id="installBanner" class="banner">
+                    <button id="installBtn" class="btn btn-special btn-block">Install app</button>
+                </section>
+            </div>
         </div>
         <div class="flex-padding"></div>
     </div>
@@ -168,12 +171,12 @@
             // Show the prompt
             deferredPrompt.prompt();
 
+            document.querySelector('#installBanner').style.display = 'none';
             // Wait for the user to respond to the prompt
             deferredPrompt.userChoice
                 .then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
                         console.log('User accepted the A2HS prompt');
-                        document.querySelector('#installBanner').style.display = 'none';
                     } else {
                         console.log('User dismissed the A2HS prompt');
                     }
@@ -182,7 +185,7 @@
         });
 
         // Update UI notify the user they can add to home screen
-        document.querySelector('#installBanner').style.display = 'flex';
+        document.querySelector('#installBanner').style.display = 'block';
     });
 </script>
 

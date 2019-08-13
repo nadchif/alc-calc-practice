@@ -26,6 +26,19 @@ const doMathOp = (event, entry) => {
     const equationDisplay = document.getElementById("equationDisplay");
     const screenFrame = document.getElementById("screenFrame");
 
+    //translate synonyms
+    if(entry == "Enter")entry = "=";
+    if(entry == "Backspace" || entry == "Escape")entry = "CE";
+    if(entry == "*")entry = "x";
+    if(entry == "/")entry = "÷";
+
+
+    document.querySelector(`[data-math-char="${entry}"]`).classList.add("pressedfx");
+    window.setTimeout(()=>{
+        document.querySelector(`[data-math-char="${entry}"]`).classList.remove("pressedfx");
+      }, 400);
+       
+
     const callCE = () => {
         screenDisplay.innerText = "0";
         equationDisplay.innerText = "Ans = 0";
@@ -56,12 +69,12 @@ const doMathOp = (event, entry) => {
 
     //add screen activate effect
     if (screenDisplay.innerText.length > 0) {
-        if(!screenFrame.classList.contains("active")){
+        if (!screenFrame.classList.contains("active")) {
             screenFrame.classList.add("active");
         }
     } else {
-        if(screenFrame.classList.contains("active")){
-        screenFrame.classList.remove("active");
+        if (screenFrame.classList.contains("active")) {
+            screenFrame.classList.remove("active");
         }
     }
 
@@ -108,7 +121,7 @@ const bootstrap = () => {
     document.querySelectorAll('.btn').forEach((button) => {
         button.addEventListener('mouseup', (event) => doMathOp(event, button.textContent))
     });
-    document.querySelector('body').addEventListener("keydown", () => {
+    document.querySelector('body').addEventListener("keydown", (event) => {
         doMathOp(event, event.key);
     });
     document.getElementById("calcButtons").style.opacity = "1";
