@@ -3,13 +3,13 @@ const AppState = {
     canReset: false
 };
 const processEquation = (eqn) => {
-    return new Function('return ' + eqn)();
-  }
+    return new(Function)('return (' + eqn + ')')();
+}
 
 const evalMath = (mathexp) => {
     let result = 0;
     try {
-        const tmpresult = processEquation(mathexp.replace("x", "*").replace("÷", "/").replace("(", "*("));
+        const tmpresult = processEquation(mathexp.replace("(", "*("));
         if (!isNaN(tmpresult)) {
             result = parseFloat(tmpresult.toPrecision(12));
         }
@@ -29,24 +29,44 @@ const doMathOp = (event, entry) => {
     const screenDisplay = document.getElementById("screenDisplay");
     const equationDisplay = document.getElementById("equationDisplay");
     const screenFrame = document.getElementById("screenFrame");
+    const hintElem = document.getElementById("synHint");
 
     //translate synonyms
-    if(entry == "Enter")entry = "=";
-    if(entry == "Backspace" || entry == "Escape")entry = "CE";
-    if(entry == "*")entry = "x";
-    if(entry == "/")entry = "÷";
+    if (entry == "Enter") entry = "=";
+    if (entry == "Backspace" || entry == "Escape") entry = "CE";
+    if (entry == "x") entry = "*";
+    if (entry == "÷") entry = "/";
 
 
     document.querySelector(`[data-math-char="${entry}"]`).classList.add("pressedfx");
-    window.setTimeout(()=>{
+    window.setTimeout(() => {
         document.querySelector(`[data-math-char="${entry}"]`).classList.remove("pressedfx");
-      }, 400);
-       
+    }, 400);
 
     const callCE = () => {
-        screenDisplay.innerText = "0";
+        hintElem.innerText = '';
+        screenDisplay.innerText = "0"; 
         equationDisplay.innerText = "Ans = 0";
         screenFrame.classList.remove("active");
+    }
+
+    const hintBrackets = (eqn) => {
+        const openingBracketCount = eqn.split("(").length;
+        const closingBracketCount = eqn.split(")").length;
+        
+        if(openingBracketCount > closingBracketCount){
+            hintElem.innerText = ")";
+        }else{
+            if(hintElem.innerText == ')'){
+                hintElem.innerText = '';
+            }
+        }
+    }
+
+    const showWithHints = (eqn) => {
+        screenDisplay.innerText = eqn;
+        hintBrackets(eqn);
+        return eqn;
     }
 
     const addToScreen = () => {
@@ -57,18 +77,19 @@ const doMathOp = (event, entry) => {
             if (lastentry == entry) {
                 return;
             } else {
-                screenDisplay.innerText = screenDisplay.innerText.substring(0, screenDisplay.innerText.length - 1);
+                showWithHints(screenDisplay.innerText.substring(0, screenDisplay.innerText.length - 1));
             }
         }
         if (screenDisplay.innerText == "0") {
             if (acceptedOperators.includes(entry)) {
-                screenDisplay.innerText += entry;
+                showWithHints(screenDisplay.innerText + entry);
                 return;
             }
-            screenDisplay.innerText = entry;
+            screenDisplay.innerText = showWithHints(entry);
             return;
         }
-        screenDisplay.innerText += entry;
+
+        showWithHints(screenDisplay.innerText + entry);
     }
 
     //add screen activate effect
@@ -123,7 +144,7 @@ const doMathOp = (event, entry) => {
 
 const bootstrap = () => {
     document.querySelectorAll('.btn').forEach((button) => {
-        button.addEventListener('mouseup', (event) => doMathOp(event, button.textContent))
+        button.addEventListener('mouseup', (event) => doMathOp(event, button.getAttribute("data-math-char")))
     });
     document.querySelector('body').addEventListener("keydown", (event) => {
         doMathOp(event, event.key);
