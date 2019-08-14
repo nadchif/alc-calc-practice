@@ -78,6 +78,11 @@ const doMathOp = (event, entry) => {
     }
 
     const addToScreen = () => {
+        //prevent double "."
+        if(screenDisplay.innerText.includes(".") && entry == "."){
+            return;
+        }
+
         //prevent multiple operators after each other
         const lastentry = (screenDisplay.innerText.substring(screenDisplay.innerText.length - 1));
         if (acceptedOperators.includes(lastentry) && acceptedOperators.includes(entry)) {
