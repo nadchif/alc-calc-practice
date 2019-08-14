@@ -1,20 +1,30 @@
+String.prototype.replaceAll = function (search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
+
 const AppState = {
     screenActive: false,
     canReset: false
 };
+
+const unBeautifyEqn = (eqn) => {
+    return eqn.replaceAll("x", "*").replaceAll("÷", "/");
+}
+
 const processEquation = (eqn) => {
-    return new(Function)('return (' + eqn + ')')();
+    return new(Function)('return (' + unBeautifyEqn(eqn) + ')')();
 }
 
 const evalMath = (mathexp) => {
     let result = 0;
     try {
-        const tmpresult = processEquation(mathexp.replace("(", "*("));
+        const tmpresult = processEquation(mathexp.replaceAll("(", "*("));
         if (!isNaN(tmpresult)) {
             result = parseFloat(tmpresult.toPrecision(12));
         }
     } catch (e) {
-        //console.log("Eval error:", e);
+        console.log("Eval error caught:", e);
     }
     AppState.canReset = true;
     return result;
@@ -37,7 +47,6 @@ const doMathOp = (event, entry) => {
     if (entry == "x") entry = "*";
     if (entry == "÷") entry = "/";
 
-
     document.querySelector(`[data-math-char="${entry}"]`).classList.add("pressedfx");
     window.setTimeout(() => {
         document.querySelector(`[data-math-char="${entry}"]`).classList.remove("pressedfx");
@@ -45,7 +54,7 @@ const doMathOp = (event, entry) => {
 
     const callCE = () => {
         hintElem.innerText = '';
-        screenDisplay.innerText = "0"; 
+        screenDisplay.innerText = "0";
         equationDisplay.innerText = "Ans = 0";
         screenFrame.classList.remove("active");
     }
@@ -53,20 +62,19 @@ const doMathOp = (event, entry) => {
     const hintBrackets = (eqn) => {
         const openingBracketCount = eqn.split("(").length;
         const closingBracketCount = eqn.split(")").length;
-        
-        if(openingBracketCount > closingBracketCount){
+
+        if (openingBracketCount > closingBracketCount) {
             hintElem.innerText = ")";
-        }else{
-            if(hintElem.innerText == ')'){
+        } else {
+            if (hintElem.innerText == ')') {
                 hintElem.innerText = '';
             }
         }
     }
 
-    const showWithHints = (eqn) => {
-        screenDisplay.innerText = eqn;
+    const beautifyDisplay = (eqn) => {
         hintBrackets(eqn);
-        return eqn;
+        screenDisplay.innerText = eqn.replaceAll("*", "x").replaceAll("/", "÷");
     }
 
     const addToScreen = () => {
@@ -77,19 +85,19 @@ const doMathOp = (event, entry) => {
             if (lastentry == entry) {
                 return;
             } else {
-                showWithHints(screenDisplay.innerText.substring(0, screenDisplay.innerText.length - 1));
+                beautifyDisplay(screenDisplay.innerText.substring(0, screenDisplay.innerText.length - 1));
             }
         }
         if (screenDisplay.innerText == "0") {
             if (acceptedOperators.includes(entry)) {
-                showWithHints(screenDisplay.innerText + entry);
+                beautifyDisplay(screenDisplay.innerText + entry);
                 return;
             }
-            screenDisplay.innerText = showWithHints(entry);
+            beautifyDisplay(entry);
             return;
         }
 
-        showWithHints(screenDisplay.innerText + entry);
+        beautifyDisplay(screenDisplay.innerText + entry);
     }
 
     //add screen activate effect
