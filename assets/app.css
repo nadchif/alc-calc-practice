@@ -109,6 +109,10 @@ body {
     animation-duration: 0.6s;
 }
 
+.btn:hover{
+    opacity: 0.7;
+}
+
 .btn:focus {
     outline: none;
 }

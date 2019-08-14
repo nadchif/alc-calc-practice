@@ -8,8 +8,28 @@ const AppState = {
     canReset: false
 };
 
+const acceptedOperators = ["/", ".", "÷", "x", "*", "+", "-", "=", "(", ")", "ce", "CE", "Backspace", "Escape", "Enter"]
+
 const unBeautifyEqn = (eqn) => {
     return eqn.replaceAll("x", "*").replaceAll("÷", "/");
+}
+
+const parsedEqn = (eqn) => {
+    let lastOperator;
+    eqn.split('').forEach(ch => {
+        if (acceptedOperators.includes(ch)) {
+            lastOperator = ch;
+        }
+    });
+
+    const openingBracketCount = eqn.split("(").length;
+    const closingBracketCount = eqn.split(")").length;
+
+    return {
+        "lastOperator": lastOperator,
+        "openingBracketCount": openingBracketCount,
+        "closingBracketCount": closingBracketCount
+    }
 }
 
 const processEquation = (eqn) => {
@@ -19,7 +39,7 @@ const processEquation = (eqn) => {
 const evalMath = (mathexp) => {
     let result = 0;
     try {
-        const tmpresult = processEquation(mathexp.replaceAll("(", "*("));
+        const tmpresult = processEquation(mathexp.replaceAll("))", ")").replaceAll("((", "(").replaceAll("(", "*("));
         if (!isNaN(tmpresult)) {
             result = parseFloat(tmpresult.toPrecision(12));
         }
@@ -29,8 +49,6 @@ const evalMath = (mathexp) => {
     AppState.canReset = true;
     return result;
 }
-const acceptedOperators = ["/", ".", "÷", "x", "*", "+", "-", "=", "(", ")", "ce", "CE", "Backspace", "Escape", "Enter"]
-
 const doMathOp = (event, entry) => {
     event.preventDefault();
     if (!acceptedOperators.includes(entry) && isNaN(entry)) {
@@ -60,10 +78,10 @@ const doMathOp = (event, entry) => {
     }
 
     const hintBrackets = (eqn) => {
-        const openingBracketCount = eqn.split("(").length;
-        const closingBracketCount = eqn.split(")").length;
 
-        if (openingBracketCount > closingBracketCount) {
+        const parsedEquation = parsedEqn(eqn);
+
+        if (parsedEquation.openingBracketCount > parsedEquation.closingBracketCount) {
             hintElem.innerText = ")";
         } else {
             if (hintElem.innerText == ')') {
@@ -78,14 +96,19 @@ const doMathOp = (event, entry) => {
     }
 
     const addToScreen = () => {
+        const parsedEquation = parsedEqn(screenDisplay.innerText);
         //prevent double "."
-        if(screenDisplay.innerText.includes(".") && entry == "."){
+        if (parsedEquation.lastOperator == "." && entry == ".") {
+            return;
+        }
+        //prevent ")" without opening bracket
+        if (parsedEquation.openingBracketCount < (parsedEquation.closingBracketCount + 1) && entry == ")") {
             return;
         }
 
         //prevent multiple operators after each other
         const lastentry = (screenDisplay.innerText.substring(screenDisplay.innerText.length - 1));
-        if (acceptedOperators.includes(lastentry) && acceptedOperators.includes(entry)) {
+        if (acceptedOperators.includes(lastentry) && acceptedOperators.includes(entry) && entry != ")" && entry != "(") {
             //check if operator is the same;
             if (lastentry == entry) {
                 return;
@@ -129,6 +152,7 @@ const doMathOp = (event, entry) => {
     }
     //handle =
     if (entry == "=" || entry == "Enter") {
+        hintElem.innerText = '';
         equationDisplay.innerText = screenDisplay.innerText + "= ";
         screenDisplay.innerText = evalMath(screenDisplay.innerText);
         return;
