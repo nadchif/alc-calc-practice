@@ -56,7 +56,7 @@ body {
 }
 
 .calc-screen.active {
-    border: 1px solid #2e8af3;
+    border: 1px solid #255994;
 }
 
 .v-flex {
@@ -135,18 +135,24 @@ body {
     background: #dadada;
     font-weight: bold;
 }
+.btn-operator:focus {
+    outline: 1px solid #255994
+}
 
 .btn-number {
     background: #ececec
 }
+.btn-number:focus{
+    outline: 1px solid #255994
+}
 
 .btn-special {
     color: #fff;
-    background: #2e8af3;
+    background: #255994;
 }
 
 .btn-num-mode {
-    color: #2e8af3;
+    color: #255994;
     background: #e8edff;
     font-weight: bold;
     padding: 0.8em 1.5em 0.8em 1.5em;
@@ -206,7 +212,7 @@ body {
 
 .more-info a {
     text-decoration: none;
-    color: #2e8af3;
+    color: #255994;
 }
 
 .page-container {

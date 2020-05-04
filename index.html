@@ -36,30 +36,30 @@
 <body>
     <div class="page-container">
         <!--Main Calculator Body-->
-        <div class="flex-padding"></div>
+        <div class="flex-padding" tabindex="-1"></div>
         <div class="calc-frame">
             <div class="v-flex">
-                <header class="calc-screen" id="screenFrame">
+                <header class="calc-screen" id="screenFrame" tabindex="-1">
                     <div class="top-line">
                         <div class="recent-icon">&nbsp;</div>
-                        <div class="recent-equation text-light" id="equationDisplay">Ans = 0</div>
+                        <div class="recent-equation text-light" id="equationDisplay" title="Entered equation">Ans = 0</div>
                     </div>
                     <div class="digits-line">
-                        <span  id="screenDisplay">0</span><span id="synHint" class="text-lighter"></span>
+                        <span  id="screenDisplay" title="Calculator Answer" aria-live="polite">0</span><span id="synHint" class="text-lighter"></span>
                     </div>
                 </header>
 
-                <main class="calc-buttons" id="calcButtons">
+                <main class="calc-buttons" id="calcButtons" tabindex="-1" aria-label="Calculator buttons">
                     <!--first row-->
                     <div class="button-row">
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-operator" data-math-char="(">(</button>
+                            <button type="button" tabindex="799" class="btn btn-operator" data-math-char="(">(</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-operator" data-math-char=")">)</button>
+                            <button type="button" tabindex="898" class="btn btn-operator" data-math-char=")">)</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-operator" data-math-char="%">%</button>
+                            <button type="button" tabindex="899"  class="btn btn-operator" data-math-char="%">%</button>
                         </div>
                         <div class="btn-wrapper">
                             <button type="button" class="btn btn-operator" data-math-char="CE">CE</button>
@@ -68,87 +68,87 @@
                     <!--second row-->
                     <div class="button-row">
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="7">7</button>
+                            <button type="button" tabindex="809" class="btn btn-number" data-math-char="7">7</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="8">8</button>
+                            <button type="button" tabindex="810" class="btn btn-number" data-math-char="8">8</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="9">9</button>
+                            <button type="button" tabindex="811" class="btn btn-number" data-math-char="9">9</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-operator" data-math-char="/">÷</button>
+                            <button type="button" tabindex="904" class="btn btn-operator" data-math-char="/">÷</button>
                         </div>
                     </div>
 
                     <!--third row-->
                     <div class="button-row">
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="4">4</button>
+                            <button type="button" tabindex="806" class="btn btn-number" data-math-char="4">4</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="5">5</button>
+                            <button type="button" tabindex="807" class="btn btn-number" data-math-char="5">5</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="6">6</button>
+                            <button type="button" tabindex="808" class="btn btn-number" data-math-char="6">6</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-operator" data-math-char="*">x</button>
+                            <button type="button" tabindex="903" class="btn btn-operator" data-math-char="*" aria-label="times">x</button>
                         </div>
                     </div>
 
                     <!--fourth row-->
                     <div class="button-row">
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="1">1</button>
+                            <button type="button" tabindex="803" class="btn btn-number" data-math-char="1">1</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="2">2</button>
+                            <button type="button" tabindex="804" class="btn btn-number" data-math-char="2">2</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="3">3</button>
+                            <button type="button" tabindex="805" class="btn btn-number" data-math-char="3">3</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-operator" data-math-char="-">-</button>
+                            <button type="button" tabindex="902" class="btn btn-operator" data-math-char="-" aria-label="minus">-</button>
                         </div>
                     </div>
 
                     <!--fifth row-->
                     <div class="button-row">
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="0">0</button>
+                            <button type="button" tabindex="801" class="btn btn-number" data-math-char="0" autofocus>0</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-number" data-math-char="."><b>.</b></button>
+                            <button type="button" tabindex="802"class="btn btn-number" data-math-char="." aria-label="point"><b>.</b></button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-special" data-math-char="=">=</button>
+                            <button type="button" tabindex="905" class="btn btn-special" data-math-char="=">=</button>
                         </div>
                         <div class="btn-wrapper">
-                            <button type="button" class="btn btn-operator" data-math-char="+">+</button>
+                            <button type="button" tabindex="901" class="btn btn-operator" data-math-char="+">+</button>
                         </div>
                     </div>
 
                     <!--final row-->
                     <div class="button-row">
                         <div class="btn-wrapper btn-group">
-                            <button type="button" class="btn-num-mode">123</button><button type="button"
-                                class="btn-fx-mode">Fx</button>
+                            <button type="button" class="btn-num-mode" tabindex="200" aria-label="Simple Calculator Mode">123</button><button type="button"
+                                class="btn-fx-mode" tabindex="201" aria-label="Scientific Calculator Mode">Fx</button>
                         </div>
                         <div class="btn-wrapper">
                         </div>
-                        <div class="btn-wrapper more-info">
+                        <div class="btn-wrapper more-info" tabindex="300">
                             <small><a href="https://github.com/nadchif/alc-calc-practice">More info</a></small>
                         </div>
                     </div>
 
                 </main>
-                <section id="installBanner" class="banner">
+                <section id="installBanner" class="banner" tabindex="301">
                     <button id="installBtn" class="btn btn-special btn-block">Install app</button>
                 </section>
             </div>
         </div>
-        <div class="flex-padding"></div>
+        <div class="flex-padding" tabindex="-1"></div>
     </div>
 
 </body>

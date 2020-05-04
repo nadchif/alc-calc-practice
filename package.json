@@ -1,0 +1,34 @@
+{
+  "name": "alc-calc-practice",
+  "version": "1.0.0",
+  "description": "HTML5/ES6/CSS3 Based calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ./src/*",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nadchif/alc-calc-practice.git"
+  },
+  "keywords": [
+    "html5",
+    "es6",
+    "css3",
+    "calculator",
+    "vanilla-js",
+    "alc",
+    "mws"
+  ],
+  "author": "github.com/nadchif",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nadchif/alc-calc-practice/issues"
+  },
+  "homepage": "https://github.com/nadchif/alc-calc-practice#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "express": "^4.17.1"
+  }
+}
