@@ -1016,6 +1016,8 @@ https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria
                 return t.fn();
                 }()), t.name);
 		console.groupEnd();
+		
+		
 
             });
 
@@ -1204,14 +1206,14 @@ console.log('in more than just one line');
         <summary>Arrow functions that create anonymous functions and use an unbounded this</summary>
 
 ```
-const functionName = (param1, param2) => {
+(param1, param2) => {
     // process function here
     return result;
 }
 ```
 
 ```
-const functionName = param1 => param1 * 2;
+param1 => param1 * 2;
 ```
 </details>
 
