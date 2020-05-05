@@ -785,6 +785,7 @@ https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria
         <summary>Inline JavaScript files for initial rendering only where necessary (or otherwise eliminated, deferred, or marked as async)</summary>
     
     * Important JS :
+    
          The script is fetched and executed immediately, before the browser continues parsing the page
         ```
         <head>
@@ -996,7 +997,7 @@ https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria
 <details>
         <summary>Writing unit tests that first verify a function’s intended behavior, and then iteratively modifying its code until it passes those tests</summary>
 
-*IMPORTANT: I couldn't find details on how exactly the Google Study Guide expects us to write our unit tests. So these are methods I thought of*
+**IMPORTANT: I couldn't find details on how exactly the Google Study Guide expects us to write our unit tests. So these are methods I thought of**
 
 * Using my own custom test runner that wraps console.asserts
     ```
@@ -1024,7 +1025,7 @@ https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria
     }
     // Example usage:
 
-    const myTestRunner = myTestRunner();
+    const myTestRunner = MyTestRunner();
     const n = 3
 
     // add tests. Test must be a function that returns a boolean
