@@ -1015,7 +1015,10 @@ https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria
                 console.assert((function () {
                 return t.fn();
                 }()), t.name);
+		console.groupEnd();
+
             });
+
         }
         return {
             reset,
