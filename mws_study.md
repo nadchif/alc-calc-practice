@@ -498,7 +498,7 @@ https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria
 
 * Avoid using `<br/>`. Use more css or more semantic tags to seperate content
 
-* Avoid using `<b>`, If its purely presentational, styles like `font-weight:bold`. If it is for emphasis use `<strong>` or `<em>`, this will be empahsized 
+* Avoid using `<b>`, If its purely presentational, styles like `font-weight:bold`. If it is for emphasis use `<strong>` or `<em>`, this will be empahsized by the Accesibility Readers
 
 </details>
 
@@ -512,7 +512,7 @@ https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria
 1. Register a service worker
     ```
     if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
+    window.addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
         .then(reg => {
             console.log('Service worker registered! 😎', reg);
@@ -683,10 +683,10 @@ https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria
     <script src="app.js" async></script>
     <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
         // Registration was successful
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(function(err) {
+        }).catch(err => {
         // registration failed :(
         console.log('ServiceWorker registration failed: ', err);
         });
@@ -977,14 +977,14 @@ https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria
             },
             // ... more items here ....
         ];
-        return Promise.all(items.map(function(item) {
+        return Promise.all(items.map(item => {
             console.log('Adding item: ', item);
             return store.add(item);
             })
-        ).catch(function(e) {
+        ).catch(e => {
             tx.abort();
             console.log(e);
-        }).then(function() {
+        }).then(() => {
             console.log('All items added successfully!');
         });
         });
@@ -1424,7 +1424,7 @@ or
             <summary>Form validation prior to submission (Constraint Validation API)</summary>
 
     ```
-    form.addEventListener("submit", function(evt) {
+    form.addEventListener("submit", (evt) => {
         if (form.checkValidity() === false) {
             evt.preventDefault();
             alert("Form is invalid - submission prevented!");
